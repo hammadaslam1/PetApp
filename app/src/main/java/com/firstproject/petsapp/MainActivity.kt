@@ -11,9 +11,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+    
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        
         
         var loginBtn = findViewById<Button>(R.id.loginBtn)
         var emailEditText = findViewById<EditText>(R.id.email)
@@ -77,8 +80,8 @@ class MainActivity : AppCompatActivity() {
             if (!email.isEmpty() && !password.isEmpty()) {
                 if (email == "hammadaslam308@gmail.com" && password == "123456") {
                     /* Toast.makeText(this@MainActivity, "Hello! " + email, Toast.LENGTH_SHORT).show() */
-                    val i = Intent(this, AddPet::class.java)
-                    i.putExtra("email", email)
+                    val i = Intent(this, All_Pets::class.java)
+                    /* i.putExtra("email", email) */
                     startActivity(i)
                 } else {
                     Toast.makeText(this, "Please check your credentials", Toast.LENGTH_SHORT).show()

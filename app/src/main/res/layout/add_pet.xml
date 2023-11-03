@@ -39,14 +39,14 @@
             
             <ImageView
                 android:id = "@+id/image"
-                android:layout_width = "150dp"
-                android:layout_height = "150dp"
+                android:layout_width = "200dp"
+                android:layout_height = "200dp"
                 android:layout_gravity = "center"
                 android:layout_marginTop = "60dp"
                 app:layout_constraintEnd_toEndOf = "parent"
                 app:layout_constraintStart_toStartOf = "parent"
                 app:layout_constraintTop_toTopOf = "parent"
-                app:srcCompat = "@color/white"
+                app:srcCompat = "@drawable/broken_image_190"
                 />
             
             <!-- <Button
@@ -229,6 +229,7 @@
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
                 android:layout_gravity = "center"
+                android:layout_marginTop = "20dp"
                 android:datePickerMode = "calendar"
                 android:elevation = "2dp"
                 android:endYear = "2023"
