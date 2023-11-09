@@ -140,7 +140,7 @@ class AddPet : AppCompatActivity() {
                         )
                         val newRecord = database.push()
                         newRecord.setValue(pets).addOnSuccessListener {
-                            Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Successfully Saved", Toast.LENGTH_LONG).show()
                             finish()
                         }.addOnFailureListener {
                             Toast.makeText(this, "Failed to save data", Toast.LENGTH_SHORT).show()
@@ -148,7 +148,7 @@ class AddPet : AppCompatActivity() {
                     }.addOnFailureListener {
                         Toast.makeText(this, "Failed to save data", Toast.LENGTH_SHORT).show()
                     }
-                    Toast.makeText(this, "Image uploaded successfully", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Image uploaded successfully", Toast.LENGTH_LONG).show()
                     /* Glide.with(this)
                         .load(imageRef)
                         .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.AUTOMATIC))

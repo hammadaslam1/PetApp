@@ -2,6 +2,9 @@ package com.firstproject.petsapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.GestureDetector
+import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -19,10 +22,28 @@ class All_Pets : AppCompatActivity() {
     private lateinit var petList: ArrayList<Pet>
     private val database = FirebaseDatabase.getInstance().getReference("pet")
     
+    private lateinit var gestureDetector: GestureDetector
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.all_pets)
+        
+        val myView = findViewById<View>(R.id.allPets)
+        gestureDetector = GestureDetector(this, CustomGestureListener())
+        
+        /* myView.setOnTouchListener { _, event ->
+            gestureDetector.onTouchEvent(event)
+            true
+        } */
+        
         val addbtn = findViewById<FloatingActionButton>(R.id.addnewbtn)
+        val google = findViewById<Button>(R.id.googlemap)
+        
+        google.setOnClickListener {
+            val i = Intent(this, GoogleMap::class.java)
+            startActivity(i)
+        }
+        
         addbtn.setOnClickListener {
             val i = Intent(this, AddPet::class.java)
             startActivity(i)

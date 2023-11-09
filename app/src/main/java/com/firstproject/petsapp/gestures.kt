@@ -72,6 +72,4 @@ class CustomGestureListener : GestureDetector.SimpleOnGestureListener() {
     private fun onSwipeRight() {
         Toast.makeText(getActivity(), "Right Swipe", Toast.LENGTH_LONG).show()
     }
-    
-    
 }
