@@ -1,4 +1,5 @@
 <resources>
     <string name = "app_name">Pets App</string>
     <string name = "googleMapApiKey">AIzaSyCRRLDe0UQGmY9tRulQnTls8h1OoHJ3zhA</string>
+    <string name = "title_activity_maps">MapsActivity</string>
 </resources>

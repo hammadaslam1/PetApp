@@ -40,7 +40,7 @@ class All_Pets : AppCompatActivity() {
         val google = findViewById<Button>(R.id.googlemap)
         
         google.setOnClickListener {
-            val i = Intent(this, GoogleMap::class.java)
+            val i = Intent(this, MapsActivity::class.java)
             startActivity(i)
         }
         

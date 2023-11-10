@@ -5,31 +5,38 @@ import android.widget.ImageButton
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.firstproject.petsapp.databinding.ActivityMapsBinding
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
-class GoogleMap : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+    
     private lateinit var googleMap: GoogleMap
+    private lateinit var binding: ActivityMapsBinding
     private var isMapReady = false
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.google_map)
-        val mapFragment =
-            supportFragmentManager.findFragmentById(R.id.googlemap) as? SupportMapFragment
-        Toast.makeText(this, "entered google map activity", Toast.LENGTH_SHORT).show()
-        mapFragment?.getMapAsync(this@GoogleMap)
+        
+        binding = ActivityMapsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+        
         val mapOptionBtn: ImageButton = findViewById(R.id.mapOption)
         val popupMenu = PopupMenu(this, mapOptionBtn)
         popupMenu.menuInflater.inflate(R.menu.menu_options, popupMenu.menu)
+        
         popupMenu.setOnMenuItemClickListener { item ->
-            if (isMapReady) {
-                changeMap(item.itemId)
-                true
-            } else {
-                Toast.makeText(applicationContext, "map is not ready yet", Toast.LENGTH_LONG).show()
-                false
-            }
+            changeMap(item.itemId)
+            true
         }
         mapOptionBtn.setOnClickListener {
             popupMenu.show()
@@ -51,13 +58,11 @@ class GoogleMap : AppCompatActivity(), OnMapReadyCallback {
     }
     
     override fun onMapReady(map: GoogleMap) {
-        if (map != null) {
-            googleMap = map
-            Toast.makeText(applicationContext, "map is ready", Toast.LENGTH_LONG).show()
-            isMapReady = true
-        } else {
-            Toast.makeText(applicationContext, "map is null", Toast.LENGTH_LONG).show()
-        }
-        
+        googleMap = map
+        val jauharabad = LatLng(32.2997271, 72.2741309)
+        googleMap.addMarker(MarkerOptions().position(jauharabad).title("Jauharabad"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(jauharabad))
+        Toast.makeText(applicationContext, "map is ready", Toast.LENGTH_LONG).show()
+        isMapReady = true
     }
 }
