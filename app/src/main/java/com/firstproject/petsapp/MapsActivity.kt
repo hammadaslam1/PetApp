@@ -59,8 +59,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     
     override fun onMapReady(map: GoogleMap) {
         googleMap = map
-        val jauharabad = LatLng(32.2997271, 72.2741309)
-        googleMap.addMarker(MarkerOptions().position(jauharabad).title("Jauharabad"))
+        val jauharabad = LatLng(32.2997894, 72.2767654)
+        googleMap.addMarker(MarkerOptions().position(jauharabad).title("Hammad's place"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(jauharabad))
         Toast.makeText(applicationContext, "map is ready", Toast.LENGTH_LONG).show()
         isMapReady = true

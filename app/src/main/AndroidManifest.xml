@@ -87,10 +87,10 @@
             android:name = ".PetDetail"
             android:exported = "false"
             />
-        <activity
+        <!-- <activity
             android:name = ".GoogleMap"
             android:exported = "false"
-            />
+            /> -->
         <activity
             android:name = ".AddPet"
             android:exported = "false"

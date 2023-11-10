@@ -149,10 +149,7 @@ class AddPet : AppCompatActivity() {
                         Toast.makeText(this, "Failed to save data", Toast.LENGTH_SHORT).show()
                     }
                     Toast.makeText(this, "Image uploaded successfully", Toast.LENGTH_LONG).show()
-                    /* Glide.with(this)
-                        .load(imageRef)
-                        .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.AUTOMATIC))
-                        .into(image) */
+                    
                 }?.addOnFailureListener { exception ->
                     Toast.makeText(this, "Error occurred while uploading image", Toast.LENGTH_SHORT)
                         .show()
